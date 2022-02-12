@@ -1,4 +1,4 @@
-# Jojaro, an open-source Discord Bot for Moderation and Multi-utility.
+# Jotaro, an open-source Discord Bot for Moderation and Multi-utility.
 
 ![](https://i1.sndcdn.com/avatars-lWhzYHAVa9rOcZMl-F0VLYg-t200x200.jpg) 
 
