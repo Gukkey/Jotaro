@@ -30,7 +30,7 @@ client.on('interactionCreate', async interaction => {
 	if (commandName === 'ping') {
 		await interaction.reply('Pong!');
 	} else if (commandName === 'donate') {
-		await interaction.reply('[](https://www.buymeacoffee.com/jotarobot)');
+		await interaction.reply('[Account is private for now](https://www.buymeacoffee.com/jotarobot)');
 	} else if (commandName === 'source') {
 		await interaction.reply('[](https://github.com/Gukkey/Jotaro)');
 	}
