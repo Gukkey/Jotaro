@@ -23,15 +23,15 @@ client.once("ready", () => {
   console.log("Welcome Gukkey and Shiyaam 👋");
 });
 
-client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isCommand()) return;
+client.on("interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
 
-  const { commandName } = interaction;
+	const { commandName } = interaction;
 
 	if (commandName === 'ping') {
 		await interaction.reply('Pong!');
 	} else if (commandName === 'donate') {
-		await interaction.reply('[Account is private for now](https://www.buymeacoffee.com/jotarobot)');
+		await interaction.reply('[](https://www.buymeacoffee.com/jotarobot)');
 	} else if (commandName === 'source') {
 		await interaction.reply('[](https://github.com/Gukkey/Jotaro)');
 	}
