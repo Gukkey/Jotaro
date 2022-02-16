@@ -8,6 +8,6 @@ Jotaro is an open-source bot that is created and maintained by myself and @shiya
 
 - [ ] Read the documentation about moderation
   - Make commands for
-  - [ ] Kick User
-  - [ ] Ban User
+  - [x] Kick User (Available in Dev Branch)
+  - [x] Ban User (Available in Dev Branch)
   - [ ] Add/Remove Roles
