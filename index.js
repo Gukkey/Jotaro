@@ -34,33 +34,33 @@ client.on("interactionCreate", async (interaction) => {
 
   const { commandName } = interaction;
   	switch (commandName) {
-		case "ping":
+		case "ping":{
 			await interaction.reply("Pong!");
-			break;
+			break;}
 
-		case "donate":
+		case "donate":{
 			await interaction.reply("[](https://www.buymeacoffee.com/jotarobot)");
-			break;
+			break;}
 
-		case "source":
+		case "source":{
 			await interaction.reply("[](https://github.com/Gukkey/Jotaro)");
-			break;
+			break;}
 
-		case "kick":
+		case "kick":{
 			const member = interaction.options.getMember("user");
     		member.kick();
     		const reason = "Dummy reason";
     		await interaction.reply(
       		`@${member.displayName} has been kicked due to ${reason}`);
-			break;
+			break;}
 
-		case "ban":
+		case "ban":{
 			const member = interaction.options.getMember("user");
     		member.ban();
     		const reason = "Dummy reason";
     		await interaction.reply(
       		`@${member.displayName} has been banned due to ${reason}`);
-			break;
+			break;}
 	  }
   // switch(commandName){
   // 	case "ping":
