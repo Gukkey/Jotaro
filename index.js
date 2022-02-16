@@ -33,29 +33,35 @@ client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
 
   const { commandName } = interaction;
+  	switch (commandName) {
+		case "ping":
+			await interaction.reply("Pong!");
+			break;
 
-  if (commandName === "ping") {
-    await interaction.reply("Pong!");
-  } else if (commandName === "donate") {
-    await interaction.reply("[](https://www.buymeacoffee.com/jotarobot)");
-  } else if (commandName === "source") {
-    await interaction.reply("[](https://github.com/Gukkey/Jotaro)");
-  } else if (commandName === "kick") {
-    const member = interaction.options.getMember("user");
-    member.kick();
-    const reason = "Dummy reason";
-    await interaction.reply(
-      `@${member.displayName} has been kicked due to ${reason}`
-    );
-  } else if (commandName === "ban") {
-    const member = interaction.options.getMember("user");
-    member.ban();
-    const reason = "Dummy reason";
-    await interaction.reply(
-      `@${member.displayName} has been ban due to ${reason}`
-    );
-  }
+		case "donate":
+			await interaction.reply("[](https://www.buymeacoffee.com/jotarobot)");
+			break;
 
+		case "source":
+			await interaction.reply("[](https://github.com/Gukkey/Jotaro)");
+			break;
+
+		case "kick":
+			const member = interaction.options.getMember("user");
+    		member.kick();
+    		const reason = "Dummy reason";
+    		await interaction.reply(
+      		`@${member.displayName} has been kicked due to ${reason}`);
+			break;
+
+		case "ban":
+			const member = interaction.options.getMember("user");
+    		member.ban();
+    		const reason = "Dummy reason";
+    		await interaction.reply(
+      		`@${member.displayName} has been banned due to ${reason}`);
+			break;
+	  }
   // switch(commandName){
   // 	case "ping":
   // 		break;
