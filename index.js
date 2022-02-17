@@ -1,38 +1,14 @@
-const dotenv = require("dotenv");
 const { Client, Intents } = require("discord.js");
-const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v9");
-const { commands } = require("./commands");
-
-dotenv.config();
-const token = process.env.TOKEN;
-const clientId = process.env.CLIENT_ID;
-const guildId = process.env.GUILD_ID;
-const nodeEnv = process.env.NODE_ENV;
-
-const rest = new REST({ version: "9" }).setToken(token);
+const { initializeApp, token } = require("./init");
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] }); // Client and REST are classes, while client and rest are objects
 
-// if (nodeEnv === "production") {
-//   rest
-//     .put(Routes.applicationCommands(clientId), { body: commands })
-//     .then(() => console.log("Successfully registered application commands."))
-//     .catch((err) => console.error(err));
-// } else if (nodeEnv === "development") {
-//   rest
-//     .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-//     .then(() => console.log("Successfully registered application commands."))
-//     .catch((err) => console.log(err));
-// }
-
-rest
-  .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-  .then(() => console.log("Successfully registered application commands."))
-  .catch((err) => console.log(err));
+initializeApp()
+  .then(() => console.log("🚀 Successfully registered commands"))
+  .catch(() => console.log("Error Occured"));
 
 client.once("ready", () => {
-  console.log("Welcome Gukkey and Shiyaam 👋");
+  console.log("💻 Client Ready");
 });
 
 client.on("interactionCreate", async (interaction) => {
