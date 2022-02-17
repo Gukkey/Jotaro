@@ -18,12 +18,12 @@ if (nodeEnv === "production") {
   rest
     .put(Routes.applicationCommands(clientId), { body: commands })
     .then(() => console.log("Successfully registered application commands."))
-    .catch(console.error);
-} else {
+    .catch((err) => console.error(err));
+} else if (nodeEnv === "development") {
   rest
     .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
     .then(() => console.log("Successfully registered application commands."))
-    .catch(console.error);
+    .catch((err) => console.log(err));
 }
 
 client.once("ready", () => {
