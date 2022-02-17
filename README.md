@@ -11,3 +11,5 @@ Jotaro is an open-source bot that is created and maintained by myself and @shiya
   - [x] Kick User (Available in Dev Branch)
   - [x] Ban User (Available in Dev Branch)
   - [ ] Add/Remove Roles
+
+View our progress on [Trello](https://trello.com/b/PHbnYU7h/jotaro)
