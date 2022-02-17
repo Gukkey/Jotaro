@@ -36,7 +36,7 @@ client.on("interactionCreate", async (interaction) => {
       const reason = interaction.options.getString("reason");
       member.kick();
       await interaction.reply(
-        `${member.displayName} has been kicked${reason ? `due to ${reason}` : "."}`
+        `${member.displayName} has been kicked${reason ? `due to ${reason} ` : "."}`
       );
       break;
     }
