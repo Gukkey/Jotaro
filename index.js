@@ -14,17 +14,22 @@ const rest = new REST({ version: "9" }).setToken(token);
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] }); // Client and REST are classes, while client and rest are objects
 
-if (nodeEnv === "production") {
-  rest
-    .put(Routes.applicationCommands(clientId), { body: commands })
-    .then(() => console.log("Successfully registered application commands."))
-    .catch((err) => console.error(err));
-} else if (nodeEnv === "development") {
-  rest
-    .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
-    .then(() => console.log("Successfully registered application commands."))
-    .catch((err) => console.log(err));
-}
+// if (nodeEnv === "production") {
+//   rest
+//     .put(Routes.applicationCommands(clientId), { body: commands })
+//     .then(() => console.log("Successfully registered application commands."))
+//     .catch((err) => console.error(err));
+// } else if (nodeEnv === "development") {
+//   rest
+//     .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+//     .then(() => console.log("Successfully registered application commands."))
+//     .catch((err) => console.log(err));
+// }
+
+rest
+  .put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+  .then(() => console.log("Successfully registered application commands."))
+  .catch((err) => console.log(err));
 
 client.once("ready", () => {
   console.log("Welcome Gukkey and Shiyaam 👋");
