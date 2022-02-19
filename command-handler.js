@@ -1,9 +1,9 @@
 /* eslint-disable import/no-dynamic-require */
-const { Client } = require("discord.js");
 const getFiles = require("./getfiles");
 
 /**
  *
+ * @typedef {import("discord.js").Client} Client
  * @param {Client} client
  */
 module.exports = (client) => {
