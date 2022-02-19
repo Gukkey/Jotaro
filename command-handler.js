@@ -11,8 +11,6 @@ module.exports = (client) => {
   const suffix = ".js";
   const commandFiles = getFiles("./commands", suffix);
 
-  console.log(commandFiles);
-
   commandFiles.forEach((command) => {
     let commandFile = require(command);
     if (commandFile.default) commandFile = commandFile.default;
@@ -22,6 +20,7 @@ module.exports = (client) => {
 
     commands[commandName.toLowerCase()] = commandFile;
   });
+  console.log(commands);
 
   client.on("interactionCreate", (interaction) => {
     if (!interaction.isCommand()) return;

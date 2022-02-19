@@ -1,12 +1,12 @@
-const { Interaction, MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   /**
    *
+   * @typedef {import("discord.js").Interaction} Interaction
    * @param {Interaction} interaction
-   * @param  {...string} args
    */
-  callback: (interaction, ...args) => {
+  callback: (interaction) => {
     const member = interaction.options.getMember("user");
     const reason = interaction.options.getString("reason");
     // member.ban();
