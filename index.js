@@ -1,4 +1,4 @@
-const { Client, Intents, MessageEmbed } = require("discord.js");
+const { Client, Intents } = require("discord.js");
 const { initializeApp, token } = require("./init");
 
 const client = new Client({
