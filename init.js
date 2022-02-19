@@ -13,6 +13,7 @@ const initializeApp = () => {
   if (process.env.NODE_ENV === "production") {
     console.log("PRODUCTION");
     return rest.put(Routes.applicationCommands(clientId), { body: commands });
+    // eslint-disable-next-line no-else-return
   } else if (process.env.NODE_ENV === "development") {
     console.log("DEVELOPMENT");
     return rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands });

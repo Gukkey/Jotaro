@@ -1,7 +1,13 @@
-const { Client, Intents } = require("discord.js");
+const { Client, Intents, MessageEmbed } = require("discord.js");
 const { initializeApp, token } = require("./init");
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] }); // Client and REST are classes, while client and rest are objects
+const client = new Client({
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+  ],
+}); // Client and REST are classes, while client and rest are objects
 
 initializeApp()
   .then(() => console.log("🚀 Successfully registered commands"))
@@ -17,7 +23,8 @@ client.on("interactionCreate", async (interaction) => {
   const { commandName } = interaction;
   switch (commandName) {
     case "ping": {
-      await interaction.reply("Pong!");
+      const embed = new MessageEmbed().setTitle("Pong").setDescription("Pong!!");
+      await interaction.reply({ embeds: [embed] });
       break;
     }
 
@@ -35,9 +42,16 @@ client.on("interactionCreate", async (interaction) => {
       const member = interaction.options.getMember("user");
       const reason = interaction.options.getString("reason");
       member.kick();
-      await interaction.reply(
-        `${member.displayName} has been kicked ${reason ? `due to ${reason}` : "."}`
-      );
+
+      const kickEmbed = new MessageEmbed()
+        .setTitle("Kick Action")
+        .setColor("YELLOW")
+        .setThumbnail(member.displayAvatarURL())
+        .setDescription(
+          `**${member.user.tag}** has been kicked${reason ? ` due to ${reason}` : "."}`
+        )
+        .setTimestamp(Date.now());
+      await interaction.reply({ embeds: [kickEmbed] });
       break;
     }
 
@@ -45,7 +59,15 @@ client.on("interactionCreate", async (interaction) => {
       const member = interaction.options.getMember("user");
       const reason = interaction.options.getString("reason");
       member.ban();
-      await interaction.reply(`${member.displayName} has been banned due to ${reason}`);
+      const banEmbed = new MessageEmbed()
+        .setTitle("Ban Action")
+        .setColor("RED")
+        .setThumbnail(member.displayAvatarURL())
+        .setDescription(
+          `**${member.user.tag}** has been banned${reason ? ` due to ${reason}` : "."}`
+        )
+        .setTimestamp(Date.now());
+      await interaction.reply({ embeds: [banEmbed] });
       break;
     }
 
